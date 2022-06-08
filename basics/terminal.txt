@@ -35,4 +35,4 @@ sudo apt install git   - установить систему git
 sudo snap install code --classic    - установить программу vscode
 
 (apt - системный установщик пакетов)
-(snap - установщий пакетов)
+(snap - установщий пакетов
