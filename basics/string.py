@@ -146,3 +146,14 @@ print(hash(b))
 
 id(a) == id(b)
 hash(a) == hash(b)
+
+
+
+from random import sample
+numbers = sample(range(0,10), k=10)
+print(sorted(numbers))
+print(numbers)
+
+
+#3
+

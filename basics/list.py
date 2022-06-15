@@ -99,3 +99,40 @@ list_.sort()
 # reverse=True сортирует по убыванию
 list_ = [2,1,5,3,8,4,7,6,10,9]
 list_.sort(reverse=True) # [10,9,8,7,6,5,4,3,2,1]
+
+
+
+
+
+
+
+
+
+# Таски
+#1
+name_of_friends = ['Bill', 'Klinton', 'Vila', 'Mark', 'Kop']
+for i in range(len(name_of_friends)):
+    print(name_of_friends[i])
+
+
+#2
+labels = ['Honda', 'Kawasaki']
+for x in labels: 
+    a.append("I like brand") 
+
+
+
+#5
+suitcase = []
+suitcase.append('футболка')
+suitcase.append('шорты')
+suitcase.append('сланцы')
+suitcase.append('очки')
+suitcase.append('кепка')
+print(suitcase)
+
+popped = suitcase(4)
+print(suitcase) 
+
+suitcase.insert(0, "панама")
+print(suitcase)
