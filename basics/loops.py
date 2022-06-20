@@ -1,166 +1,293 @@
-"=============Логические операторы==============="
-# логические операторы - выражения, которые возвращают True, если правда, False - если ложь
-
-5 == 5 # True
-4 == 5 # False
-
-5 != 5 # False
-5 != 2 # True
-
-5 > 10 # False
-10 > 5 # True
-5 > 5 # False
-
-5 < 10 # True
-10 < 5 # False
-5 < 5 # False
-
-5 <= 10 # True
-10 <= 5 # False
-5 <= 5 # True
-
-5 >= 10 # False
-10 >= 5 # True
-5 >= 5 # True
-
-'5' == 5 # False
+"============Циклы============="
+# циклы - это блок кода который повторяется несколько раз
+# for - цикл, который работает с итерируемыми обьектами. цикл заканчивает свою работу, когда он дошел до конца (до последнего элемента) в итерируемом обьекте
+# while - цикл, который работает до тех пор пока условие верное
+# i это цикл
+# !=    не равно
 
 
-"=============And or not================="
-# and - и
-# or - или
-a = 5
-b = 6
+count = 10
+while count != 0:
+    print(count)
+    count = count - 1
+print("end")
+# 10 9 8 7 6 5 4 3 2 1 end
 
-a == 5 and b == 6 # True (правая сторона True, левая тоже True)
-a == 5 and b == 5 # False (правая сторона True, но левая False)
-a == 4 and b == 5 # False (обе стороны False)
+a = 0
+while a:
+    print("hello")
+# не отработает вообще потому что bool(a) False
 
-a == 5 or b == 6 # True (правая сторона True, левая тоже True)
-a == 5 or b == 5 # True (правая сторона True, но левая False)
-a == 4 or b == 5 # False (обе стороны False)
+for i in [1,2,3]:
+    print(i)
+# 1 2 3
 
-# если обе части выдают True - будет True
-# если обе части выдают False - будет False
-# если одна часть True, вторая False:
-# 1. если стоит and - выйдет False
-# 2. если стоит or - выйдет True
+for i in range(5):
+    print(i)
+# 0 1 2 3 4
 
-not True # False
-not False # True
-not a == 5 # False (потому что a == 5)
-not a == 4 # True (потому что a == 5)
+for i in range(1, 10):
+    print(i)
+# 1 2 3 4 5 6 7 8 9
 
-2 in [1,2,3,4,5] # True
-"a" in {"b":3, "c":"a"} # False (нет среди ключей)
+for i in 12345:
+    print(i)
+# TypeError: 'int' object is not iterable
+
+for i in '12345':
+    print(i)
+# '1' '2' '3' '4' '5'
+
+num = 12345678
+sum = 0
+for i in str(num):
+    # sum = sum + i 
+    # TypeError: unsupported operand type(s) for +: 'int' and 'str'
+    sum = sum + int(i)
+print(sum) # 36
+
+string = 'hello'
+string2 = 'world'
+for i in range(len(string)):
+    print(i, string[i], string2[i])
+# 0 h w
+# 1 e o
+# 2 l r
+# 3 l l
+# 4 o d
+
+for i in []:
+    print(i)
+# не отработает вообще, потому что нет элементов
+
+list_ = [1,2,3]
+for i in list_:
+    print(i)
+    # list_.append("hello") 
+    # будет работать бесконечно
 
 
-"============Boolean Type================"
-# Булевый тип данных - имеет всего 2 значения True и False
-bool(1) # True
-bool(0) # False
-bool(-277) # True
-
-bool('hello') # True
-bool('') # False
-bool(' ') # True
-
-bool(True) # True
-bool(False) # False
+string = 'hello'
+for i in string:
+    print(i)
+    string = string + "hello"
+    print(string)
+# отработает только 5 раз, потому что у переменной string ссылка на 70 строке менялась, а у цикла (68 стр) нет
 
 
-"============None Type=============="
-# None - тип данных с одним значением None, который используется для обозначения пустых значений или отсутствия значения
-bool(None) # False
-bool('None') # True
 
-a = None
-print(bool(a)) # False
-print(a is None) # True
-# is это проверка на полное соответствие
+"===============Ключевые слова в циклах================="
+# break - полностью выйти из цикла
+# continue - перейти к следующей итерации
+
+for i in range(10):
+    if i == 3:
+        continue
+    print(i)
+# 0 1 2 4 5 6 7 8 9
+
+for i in range(10):
+    print(i)
+    if i == 3:
+        continue
+# 0 1 2 3 4 5 6 7 8 9
+
+for i in range(10):
+    print(i)
+    if i == 3:
+        break
+# 0 1 2 3
+
+for i in range(10):
+    if i == 3: break
+    print(i)
+# 0 1 2
+
+for i in range(10):
+    if i < 3: continue
+    print(i)
+# 3 4 5 6 7 8 9
 
 
-"==============Условные операторы================"
-# условные операторы нужны для того, чтобы при разных входных данных код работал по разному
+for i in range(10):
+    print(i)
+    for j in range(10):
+        print(j)
+        if j == 5: break
+    if i == 2: break
 
-if условие1:
-    тело1
-    # будет работать только если условие1 верно
+for i in range(1, 11): print(i)
+# 1 2 3 4 5 6 7 8 9 10
 
-if условие1:
-    тело1
-    # будет работать только если условие1 верно
+list_ = [2,1,3,6,2,5,2,8,2]
+while 2 in list_:
+    list_.remove(2)
+print(list_)
+
+
+"================Итерирование словарей===================="
+dict1 = {"a":1, "b":2, "c":3, "d":4}
+
+# при итерации словаря, мы будем получать его ключи
+for key in dict1:
+    print(key)
+# "a" "b" "c" "d"
+
+# при итерации dict_keys, мы получим его ключи
+for key in dict1.keys():
+    print(key)
+# "a" "b" "c" "d"
+
+# при итерации dict_values, мы будем получать значения словаря
+for value in dict1.values():
+    print(value)
+# 1 2 3 4
+
+for key in dict1:
+    print(dict1[key])
+    # так мы тоже выведем значения
+
+# при итерации dict_items, мы будем получать tuple из ключа и значения
+for items in dict1.items():
+    key = items[0]
+    value = items[1]
+    print(key, value)
+
+# можем распаковать tuple на 2 переменные
+for key, value in dict1.items():
+    print(key, value)
+
+
+# for key, value in dict1.keys():
+# ValueError: not enough values to unpack (expected 2, got 1)
+# потому что метод keys возвращает нам только 1 элемент, а мы распаковываем его на 2 переменные
+
+
+for a, b, c in [ (1,2,3), (4,5,6), (7,8,9) ]:
+    print(a, b, c)
+# a=1 b=2 c=3 (iter1)
+# a=4 b=5 c=6 (iter2)
+# a=7 b=8 c=9 (iter3)
+
+for a, b in [(1,2),(2,3),(3,4)]:
+    print(a,b)
+# a=1 b=2 (iter1)
+# a=2 b=3 (iter2)
+# a=3 b=4 (iter3)
+
+a = []
+for i in a:
+    print("for")
 else:
-    тело2
-    # будет работать если условие1 не верно
+    # сработает только если цикл вообще ни разу не отработал
+    print("else")
 
-if условие1:
-    тело1
-    # будет работать только если условие1 верно
-elif условие2:
-    тело2
-    # будет работать если условие1 не верно и условие2 верно
-
-if условие1:
-    тело1
-    # будет работать только если условие1 верно
-elif условие2:
-    тело2
-    # будет работать если условие1 не верно и условие2 верно
+while 0:
+    print("while")
 else:
-    тело3
-    # будет работать если условие1 не верно и условие2 не верно
+    # не сработает только если цикл был прерван break
+    print("else")
 
-
-# в одной конструкции мы можем использовать только один if
-# в одной конструкции мы можем использовать неограниченное кол-во elif или не указывать вообще
-# else мы так-же можем использовать только один раз или не указывать вообще
-
-a = int(input('Введите число: '))
-
-if a > 0:
-    print(f'Число {a} - положительное')
-elif a < 0:
-    print(f'Число {a} - отрицательное')
+a = 1
+while a:
+    print("while") 
+    if a == 1:
+        break
 else:
-    print(f'Число {a} - это 0')
+    # не сработает только если цикл был прерван break
+    print("else")
 
 
 
-"======FizzBuzz======"
-# выведите числа от 1 до 100
-# если число кратно 3 - вывести Fizz
-# если число кратно 5 - вывести Buzz
-# если число кратно и 5 и 3 - вывести FizzBuzz
-# если число не кратно ни 5 ни 3 - вывести число
-
-for i in range(1, 17):
-    if i % 3 == 0:
-        if i % 5 == 0:
-            print("FizzBuzz")
-        else:
-            print("Fizz")
-    elif i % 5 == 0:
-        print("Buzz")
-    else:
-        print(i)
-
-for i in range(1, 17):
-    if i % 3 == 0 and i % 5 ==0:
-        print("FizzBuzz")
-    elif i % 3 == 0:
-        print("Fizz")
-    elif i % 5 == 0:
-        print("Buzz")
-    else:
-        print(i)
 
 
-"==============Тернарные операторы================"
-# условия в одну строку
-тело1 if условие else тело2
 
-res = 'Hello' if a == 5 else 'Bye' 
-print(res) 
-# Hello, если a == 5
-# Bye, если a != 5
+Таски тема "List Comprehension"
+
+№1
+    list_ = [item for item in range(1, 101)]
+print(list_)  
+
+№2
+list_ = [i for i in range(1,51) if i%2]
+print(list_)
+
+№3
+list_ = [-4, -3, -2, -1, 0, 1, 2, 3, 4]
+int_list = [i for i list_ if <0 and %2)
+print(int_list)
+
+
+№4
+list_ = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+new_nums = [item ** 2 for item in list_] 
+print(new_nums) 
+
+
+№5
+list1 = [1,'hello', 3, 'a', 4.0, 6, 8, 'hw']
+[ 'нечетное' if i % 2 else 'четное'
+  for i in list1 
+  if type(i) == int or type(i) == float ]
+
+решение - 
+str_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+int_list = 
+
+создайте новый список int_list, где все элементы, строки старого списка str_list, будут преобразованы в числовой тип данных:
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  
+Нужно использовать comprehension.
+
+
+
+
+циклы 
+while - пока не сработает это, нужно делать то
+for - проходится по массиву либо по строке, цикл while такого делать не может
+while хорош в проверках
+
+
+continue пропускает одну интерацию, к примеру 'Hello world' 
+
+for j in 'Hello world':
+    if j == 'w':
+        continue
+    print (j * 3)
+
+выйдет;
+HHH
+eee
+lll
+lll
+ooo
+   
+ooo
+rrr
+lll
+ddd
+то есть пропускает символ и продолжает
+
+
+
+break - вообще выходит из интерации, когда дойдет до указанного символа
+for j in 'Hello world':
+    if j == 'w':
+        break
+    print (j * 3)
+выйдет:
+HHH
+eee
+lll
+lll
+ooo
+он даже не продолжил выводить world, так как первая была буква 'w'
+
+else - записывается после цикла, на одной линии,
+пример 
+for j in 'Hello world':
+    if j == 'a':   #проверяем на наличии буквы 'a', её соответственно нет, поэтому срабатывает else
+        break
+    print (j * 3)
+else: 
+    print ('буквы А нет в слове')
