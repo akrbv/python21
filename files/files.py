@@ -109,8 +109,93 @@
 # Метод readlines()
 
 # пример:
-file1 = open('makers.txt', 'r')
-list_ = file1.readlines()
-print(list_)
+# file1 = open('makers.txt', 'r')
+# list_ = file1.readlines()
+# print(list_)
 
+
+
+
+
+
+
+
+
+
+'================Работа с файлами=========================='
+
+open - функция, которая позволяет открыть файл
+
+'=================Режимы======================='
+# r - read
+# w - write (только дял записи (сначала все из файла удаляется, а потом записывается))
+# a - append (дозапись (все новое добавляется в конец))
+# x - создает файл, если он уже существует - ошибка 
+# rb - чтение в бинарном виде 
+# wb - запись в бинарном виде
+# ab - запись в бинарном виде
+
+
+
+open('test.txt')
+# когда мы не указываем режим по умолчанию чтения
+ошибка ===
+
+
+# когда мы открываем файл в режиме w - он создает пустой файл и потом туда записывает 
+# данные 
+open('test.txt', 'w')
+
+
+open('test.txt')
+метод read нельзя использовать при режиме записи и дозаписи
+file.write('Hello world')
+
+
+
+'=============read=================='
+file = open('test.txt') # открываем файл в режиме чтения
+res = file.read() #считывает весь файл и возвращает строку
+print(file.read(5)) #пустая строка, потому что каретка находится в самом конце файла
+print(file.tell()) #10 (показывает текущее положение каретки)
+print(file.seek(0)) #сдвигает каретку
+print(file.readlines(2)) 
+
+
+file = open("test.txt", 'w+')
+file.write("Hello world\nMakers\nBootcamp")
+file.seek(0)
+res = file.read()
+file.seek(0)
+file.write("New lines\n")
+file.write(res)
+file.close()
+
+
+
+
+
+
+
+
+
+
+
+file.writelines(['line1', 'line2', 'line3']) принимает список со строками и дозаписывает их в файл 
+
+'=============with=================='
+# with - это конструкция, которая в начале конструкции вызывает __enter__ а в конце вызывает __exit__
+class Test:
+    def __enter__(self):
+        print("Начало работы")
+        return self
+    
+    def __exit__(self, *args, **kwargs):
+        print("Конец работы")
+    
+    def hello(self):
+        print("Hello world")
+
+with Test() as test:
+    test.hello()
 
